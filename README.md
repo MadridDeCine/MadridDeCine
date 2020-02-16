@@ -7,7 +7,7 @@ Para acceder a perfil, sugerencias, quedadas y añadir/modificar películas es n
 
 ## Modelos:
 
-**- Usuarios:**
+**- Usuarios:** :sunglasses:
 
 No tienen roles.
 
@@ -18,26 +18,26 @@ Pueden marcar/desmarcar películas como favoritas (botón), que aparecerán en u
 Se mostrara una lista de películas favoritas y quedadas en las que se participa.
 
 
-**- Películas**
+**- Películas** :movie_camera:
 
 Se muestran en el mapa de la ciudad.
 
 
-**- Sugerencias:**
+**- Sugerencias:** :coffee:
 
 Pueden ser añadidas por los usuarios.
 
 Se mostrarán en una lista.
 
 
-**- Quedadas:**
+**- Quedadas:** :tada:
 
 Tendrán varios usuarios (botón para apuntarse).
 
 Se mostrará en el detalle de la quedada los usuarios participantes.
 
 
-## Endpoint
+## Endpoint :triangular_flag_on_post:
 
 |method|      endpoint           |  descripción                                     |
 |------|:------------------------|:-------------------------------------------------|
