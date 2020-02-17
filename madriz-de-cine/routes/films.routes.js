@@ -21,11 +21,7 @@ router.get('/:id',(req,res) => {
 })
 
 
-router.get('/new',(req,res) => {
-    Film.find()
-    .then(theFilm=> res.render('film/new-film',{films:theFilm}))
-    .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
-})
+router.get('/new',(req,res) => res.render('film/new-film'))
 
 router.post('/new',(req,res) => {
     Film.create(req.body)
@@ -50,10 +46,15 @@ router.get('/edit/:id',(req,res)=>{
 
 router.post('/edit/:id',(req,res)=>{
 
-  let {username,email} = req.body
+  let {title,year,director,argument,place,actors} = req.body
 
-  User.findByIdAndUpdate(req.params.id, {username,password:hashPass,email})
-  .then(x=> res.redirect('/auth/user'))
+  uptActors=[]
+  actors.forEach(elm => {
+    uptActors.push({name:elm})
+  });
+
+  Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors})
+  .then(x=> res.redirect(`/film/${req.params.id}`))
 })
 
 

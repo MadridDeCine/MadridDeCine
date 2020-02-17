@@ -6,10 +6,12 @@ const filmSchema = new Schema({
         type: String,
         required: true
     },
-    cartel: String,
+    poster: String,
     year: Number,
     director: String,
-    actors: [],
+    actors: [{
+        name:String
+    }],
     argument: String,
     image: String,
     place: String,
