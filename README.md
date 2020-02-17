@@ -41,12 +41,11 @@ Se mostrará en el detalle de la quedada los usuarios participantes.
 
 |method|      endpoint           |  descripción                                     |
 |------|:------------------------|:-------------------------------------------------|
-| get  | /signup                 | Muestra el formulario para crear un formulario   |
-| post | /signup                 | Guarda el usuario en BBDD                        |
-| get  | /user/:id               | Muestra el formulario para crear un formulario   |
-| get  | /user/:id               | Muestra el formulario para crear un formulario   |
-| get  | /user/edit/:id          | Muestra el formulario para editar un usuario     |
-| post | /user/edit/             | Edita el usuario                                 |
+| get  | /auth/signup            | Muestra el formulario para crear un formulario   |
+| post | /auth/signup            | Guarda el usuario en BBDD                        |
+| get  | /auth/user/             | Muestra el formulario para crear un formulario   |
+| get  | /auth/user/edit/:id     | Muestra el formulario para editar un usuario     |
+| post | /auth/user/edit/        | Edita el usuario                                 |
 | get  | /films/new              | Muestra el formulario para crear una película    |
 | post | /films/new              | Guarda la película en bbdd                       |
 | get  | /films/list             | Muestra la lista de películas                    |
