@@ -1,6 +1,6 @@
 const express = require("express");
 const passport = require('passport');
-const User = require("../models/User");
+const User = require("../models/user.model");
 const ensureLogin = require("connect-ensure-login");
 const router = express.Router();
 
@@ -26,7 +26,7 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   
-  const { username, password } = req.body
+  const { username, password, email} = req.body
 
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
@@ -43,7 +43,7 @@ router.post("/signup", (req, res, next) => {
             const salt = bcrypt.genSaltSync(bcryptSalt)
             const hashPass = bcrypt.hashSync(password, salt)
 
-            User.create({ username, password: hashPass })
+            User.create({ username, password: hashPass, email})
               .then(user => {
                 req.login(user, function(err) {
                 if (err) { return next(err); }
@@ -53,17 +53,36 @@ router.post("/signup", (req, res, next) => {
         })
         .catch(error => next(error))
         
-        req.login(user, function(err) {
-          if (err) { return next(err); }
-          return res.redirect('/users/' + req.user.username);
-        });
-        
 });
 
 router.get("/user",(req,res)=>{
   console.log(req.user)
   res.render("auth/auth-user",req.user)
 })
+
+router.get('/user/edit/:id',(req,res)=>{
+  console.log(req.params.id)
+  User.findById(req.params.id)
+  // .populate()
+  .then(theUser => {
+    console.log(theUser)
+    console.log(req.user)
+    res.render('auth/auth-edit-user', theUser)})
+  .catch(err => console.log("Ha ocurrido un error",err))
+})
+
+router.post('/user/edit/:id',(req,res)=>{
+
+  console.log(req.body)
+  let {username,password,email} = req.body
+
+  const salt = bcrypt.genSaltSync(bcryptSalt)
+  const hashPass = bcrypt.hashSync(password, salt)
+
+  User.findByIdAndUpdate(req.params.id, {username,password:hashPass,email})
+  .then(x=> res.redirect('/auth/user'))
+})
+
 
 router.get("/logout", (req, res) => {
   req.logout();

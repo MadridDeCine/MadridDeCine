@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1 style="font-weight: 100">Editar tu informacion personal {{this.username}}</h1>
+    </div>
+
+    <div class="col-md-6">
+
+      <form action="/auth/user/edit/{{_id}}" method="post">
+        <div class="form-group">
+          <label for="username-input">Username</label>
+          <input name="username" type="text" class="form-control" id="username-input" value="{{username}}">
+        </div>
+        <div class="form-group">
+          <label for="password-input">New Password</label>
+          <input name="password" type="password" class="form-control" id="password-input" placeholder="new pass">
+        </div>
+        <div class="form-group">
+          <label for="email-input">E-mail</label>
+          <input name="email" type="text" class="form-control" id="email-input" value="{{email}}">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Edit Info</button>
+        <a href="/auth/user" class="btn btn-dark">go back</a>
+
+      </form>
+    </div>
+
+  </div>
+</div>
