@@ -55,12 +55,12 @@ router.post("/signup", (req, res, next) => {
         
 });
 
-router.get("/user",(req,res)=>{
+router.get("/user",ensureLogin.ensureLoggedIn(),(req,res)=>{
   console.log(req.user)
   res.render("auth/auth-user",req.user)
 })
 
-router.get('/user/edit/:id',(req,res)=>{
+router.get('/user/edit/:id',ensureLogin.ensureLoggedIn(),(req,res)=>{
   console.log(req.params.id)
   User.findById(req.params.id)
   // .populate()
