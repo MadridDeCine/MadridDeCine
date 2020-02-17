@@ -13,6 +13,22 @@ router.get('/',(req,res) => {
     .catch(err => console.log("Ha ocurrido un error",err))
     })
 
+    router.get('/new',(req,res) => res.render('film/new-film'))
+
+router.post('/new',(req,res) => {
+
+  let {title,year,director,argument,place,actors} = req.body
+
+    uptActors=[]
+    actors.forEach(elm => {
+      uptActors.push({name:elm})
+    });
+
+    Film.create({title,year,director,argument,place,actors:uptActors})
+        .then(theFilm => res.redirect('/film/new'))
+        .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
+})
+
 router.get('/:id',(req,res) => {
     Film.findById(req.params.id)
     .then(theFilm => res.render('film/film-details', theFilm))
@@ -21,13 +37,7 @@ router.get('/:id',(req,res) => {
 })
 
 
-router.get('/new',(req,res) => res.render('film/new-film'))
 
-router.post('/new',(req,res) => {
-    Film.create(req.body)
-        .then(theFilm => res.redirect('/film/new'))
-        .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
-})
 
 router.get('/delete/:id',(req,res) => {
 

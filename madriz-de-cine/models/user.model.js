@@ -5,6 +5,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email:String,
+  path:String,
   meeting: [{ type: mongoose.Schema.ObjectId, ref: 'user'}]
 }, {
   timestamps: {

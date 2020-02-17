@@ -8,6 +8,9 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+// Cloudinary
+const uploadCloud = require("../configs/cloudinary.config");
+
 
 router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
@@ -75,10 +78,20 @@ router.post('/user/edit/:id',(req,res)=>{
 
   console.log(req.body)
   let {username,password,email} = req.body
-
+  const hashPass=""
   const salt = bcrypt.genSaltSync(bcryptSalt)
-  const hashPass = bcrypt.hashSync(password, salt)
+  
+  // if(req.body.password===""){hashPass=req.user.password}else{hashPass = bcrypt.hashSync(password, salt)}
+  
+  console.log("soy haspas",hashPass)
 
+  // uploadCloud.single("phototoupload"),
+  // (req, res, next) => {
+  //   console.log(
+  //     "Y esto es lo que hace multer cuando colabora con Cloudinary",
+  //     req.file
+  //   )}
+    // path:req.file.secure_url
   User.findByIdAndUpdate(req.params.id, {username,password:hashPass,email})
   .then(x=> res.redirect('/auth/user'))
 })

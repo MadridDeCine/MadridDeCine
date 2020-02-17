@@ -8,7 +8,7 @@
 
     <div class="col-md-6">
 
-      <form action="/auth/user/edit/{{_id}}" method="post">
+      <form action="/auth/user/edit/{{_id}}" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username-input">Username</label>
           <input name="username" type="text" class="form-control" id="username-input" value="{{username}}">
@@ -20,6 +20,11 @@
         <div class="form-group">
           <label for="email-input">E-mail</label>
           <input name="email" type="text" class="form-control" id="email-input" value="{{email}}">
+        </div>
+        <div class="form-group">
+          <label for="photo-input">Photo</label>
+          <input type="file" name="phototoupload"><br>
+
         </div>
 
         <button type="submit" class="btn btn-dark">Edit Info</button>

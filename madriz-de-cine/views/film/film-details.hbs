@@ -2,13 +2,30 @@
 
   <h1 style="font-weight: 100">{{title}}</h1>
 
-  <h4>Descripción</h4>
-  <p>{{description}}</p>
+  <h4>Director:</h4>
+  <p>{{director}}</p>
   <hr>
 
-  <h5>Sobre el parque</h5>
-  <p><strong>Nombre</strong>:</p>
-  <p><strong>Descripción</strong>:</p>
+  <h5>Year:</h5>
+  <p><strong>{{year}}</strong>:</p>
+  <hr>
+
+  <h5>Place:</h5>
+  <p><strong>{{place}}</strong>:</p>
+  <hr>
+
+  <h5>Argumento:</h5>
+  <p>{{argument}}:</p>
+  <hr>
+
+  <h5>Actores:</h5>
+  {{#each actors}}
+    <p>
+      Name:{{name}}
+    </p>
+  {{/each}}
+
+  
 
   <a href="/film" class="btn btn-dark">Volver</a>
 
