@@ -44,15 +44,20 @@ router.post("/signup", (req, res, next) => {
             const hashPass = bcrypt.hashSync(password, salt)
 
             User.create({ username, password: hashPass })
-                .then(() => passport.authenticate("local",{
-                  successRedirect: "/auth/user",
-                  failureRedirect: "/auth/login",
-                  failureFlash: true,
-                  passReqToCallback: true
-                }))
-                .catch(() => res.render("auth/signup", { message: "Something went wrong" }))
+              .then(user => {
+                req.login(user, function(err) {
+                if (err) { return next(err); }
+                return res.redirect('/auth/user');
+              })})
+              .catch(() => res.render("auth/signup", { message: "Something went wrong" }))
         })
         .catch(error => next(error))
+        
+        req.login(user, function(err) {
+          if (err) { return next(err); }
+          return res.redirect('/users/' + req.user.username);
+        });
+        
 });
 
 router.get("/user",(req,res)=>{

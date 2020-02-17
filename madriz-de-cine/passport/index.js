@@ -7,13 +7,13 @@ require('./serializers');
 require('./localStrategy');
 
 module.exports = (app)  => {
+  
+    app.use(session({
+      secret: 'irongenerator',
+      resave: true,
+      saveUninitialized: true,
+      store: new MongoStore( { mongooseConnection: mongoose.connection })
+    }))
   app.use(passport.initialize());
   app.use(passport.session());
-
-  app.use(session({
-    secret: 'irongenerator',
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore( { mongooseConnection: mongoose.connection })
-  }))
 }
