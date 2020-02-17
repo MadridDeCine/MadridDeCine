@@ -45,27 +45,27 @@ Se mostrará en el detalle de la quedada los usuarios participantes.
 | post | /auth/signup            | Guarda el usuario en BBDD                        |
 | get  | /auth/user/             | Muestra el formulario para crear un formulario   |
 | get  | /auth/user/edit/:id     | Muestra el formulario para editar un usuario     |
-| post | /auth/user/edit/        | Edita el usuario                                 |
+| post | /auth/user/edit/:id     | Edita el usuario                                 |
+| get  | /films                  | Muestra la lista de películas                    |
 | get  | /films/new              | Muestra el formulario para crear una película    |
 | post | /films/new              | Guarda la película en bbdd                       |
-| get  | /films/list             | Muestra la lista de películas                    |
-| get  | /films/details:id       | Muestra los detalles de una película             |
-| get  | /films/edit/:id         | Muestra el formulario para editar un usuario     |
-| get  | /films/edit             | Edita la película                                |
-| post | /films/delete           | Elimina una pelicula                             |
+| get  | /films/details/:id      | Muestra los detalles de una película             |
+| get  | /films/edit/:id         | Muestra el formulario para editar una pelicula   |
+| post | /films/edit/:id         | Edita la película                                |
+| get  | /films/delete/:id       | Elimina una pelicula                             |
+| get  | /suggestions            | Muestra la lista de sugerencias                  |
 | get  | /suggestions/new        | Muestra el formulario para crear una sugerencia  |
 | post | /suggestions/new        | Guarda la sugerencia en bbdd                     |
-| get  | /suggestions/list       | Muestra la lista de sugerencias                  |
 | get  | /suggestions/details:id | Muestra los detalles de la sugerencia            |
 | get  | /suggestions/edit/:id   | Muestra el formulario de editar una sugerencia   |
-| post | /suggestions/edit       | Edita una sugerencia                             |
-| get  | /suggestions/delete     | Elimina una sugerencia                           |
+| post | /suggestions/edit/:id   | Edita una sugerencia                             |
+| get  | /suggestions/delete/:id | Elimina una sugerencia                           |
+| get  | /meetings               | Muestra la lista de encuentros                   |
 | get  | /meetings/new           | Muestra el formulario de crear un encuentro      |
 | post | /meetings/new           | Guarda un encuentro en bbdd                      |
-| get  | /meetings/list          | Muestra la lista de encuentros                   |
-| get  | /meetings/details:id    | Muestra los detalles de un encuentro             |
+| get  | /meetings/details/:id   | Muestra los detalles de un encuentro             |
 | get  | /meetings/edit/:id      | Muestra el formulario de editar un encuentro     |
-| post | /meetings/edit          | Edita un encuentro                               |
-| get  | /meetings/delete        | Elimina un encuentro                             |
+| post | /meetings/edit/:id      | Edita un encuentro                               |
+| get  | /meetings/delete/:id    | Elimina un encuentro                             |
 
 
