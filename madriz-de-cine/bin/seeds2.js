@@ -22,7 +22,7 @@ const films = [
     } 
   },
   {
-    title: "https://res.cloudinary.com/dw1febtea/image/upload/v1581944457/elUltimatumDeBourne_cbaevl.jpg",
+    title: "Ultimatum De Bourne",
     cartel: "https://res.cloudinary.com/dw1febtea/image/upload/v1581606110/sample.jpg",
     year: 2007,
     director: "Paul Greengrass",
