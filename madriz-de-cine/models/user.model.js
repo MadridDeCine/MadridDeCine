@@ -4,7 +4,8 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  email:String
+  email:String,
+  meeting: [{ type: mongoose.Schema.ObjectId, ref: 'user'}]
 }, {
   timestamps: {
     createdAt: 'created_at',
