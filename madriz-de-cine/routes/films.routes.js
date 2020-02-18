@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const Film = require('../models/film.model')
+const uploadCloud = require("../configs/cloudinary.config");
+
 
 
 
@@ -15,10 +17,13 @@ router.get('/',(req,res) => {
 
 router.get('/new',(req,res) => res.render('film/new-film'))
 
-router.post('/new',(req,res) => {
+router.post('/new',uploadCloud.single("phototoupload"),uploadCloud.single("phototoupload2"),(req,res) => {
 
   let {title,year,director,argument,place,actors} = req.body
-  console.log(typeof actors)
+  console.log(
+    "Y esto es lo que hace multer cuando colabora con Cloudinary",
+    req.file
+  )
   uptActors=[]
 
   if(actors){

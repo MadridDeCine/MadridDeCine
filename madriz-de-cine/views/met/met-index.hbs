@@ -1,0 +1,17 @@
+<div class="container">
+
+  
+
+  <h1 style="font-weight: 100">Índice de Meetings</h1>
+  <hr>
+
+  {{#each mets}}
+    <a href="/met/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+    <a href="/met/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
+    <a href="/met/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
+    <h4>{{name}}</h4>
+    <hr>
+  {{/each}}
+
+  <a href="/met/new" class="btn btn-dark">Create new Met</a>
+</div>

@@ -8,7 +8,7 @@
 
     <div class="col-md-6">
 
-      <form action="/film/new" method="post">
+      <form action="/film/new" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title-input">Title</label>
           <input name="title" type="text" class="form-control" id="title-input" placeholder="Title">
@@ -36,6 +36,13 @@
           <label for="actors-input">Actores:</label>
           <div class="btn btn-sm btn-success" id="newActor">add actor</div>
           <div class="btn btn-sm btn-danger" id="delActor">del actor</div>
+        </div>
+
+        <div class="form-group">
+          <label for="photo-input">Poster</label>
+          <input type="file" name="phototoupload"><br>
+          <label for="photo-input">Place Photo</label>
+          <input type="file" name="phototoupload2"><br>
         </div>
 
         <button type="submit" class="btn btn-dark">Add Film</button>

@@ -44,5 +44,8 @@ app.use('/film', filmRoutes);
 
 const suggestionRoutes = require('./routes/suggestion.routes.js')
 app.use('/suggestion', suggestionRoutes)
+
+const metRoutes = require('./routes/met.routes');
+app.use('/met', metRoutes);
       
 module.exports = app
