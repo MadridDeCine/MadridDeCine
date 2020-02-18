@@ -54,6 +54,7 @@ router.post('/edit/:id',(req,res)=>{
 
   Suggestion.findByIdAndUpdate(req.params.id, {name, description, address, recommendation})
   .then(x=> res.redirect(`/suggestion/${req.params.id}`))
+  .catch(err => console.log("Ha ocurrido un error al editar la sugerencia",err))
 })
 
 module.exports = router
