@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Film = require('../models/film.model');
 
 const dbName = 'madriz-de-cine';
-mongoose.connect(`mongodb://localhost/${dbName}`)
+mongoose.connect("process.env.REMOTEDB")
 
 
 const films = [

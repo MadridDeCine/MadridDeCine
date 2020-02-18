@@ -18,7 +18,6 @@ router.post('/new',uploadCloud.single("phototoupload"),(req,res) => {
 let {name,description,place,date,hour} = req.body
  console.log(date)
 
-
 console.log(
   "Y esto es lo que hace multer cuando colabora con Cloudinary",
   req.file
