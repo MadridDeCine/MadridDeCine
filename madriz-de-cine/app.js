@@ -14,6 +14,8 @@ require('./configs/middleware.config')(app)
 require('./configs/preprocessor.config')(app)
 require('./configs/locals.config')(app)
 require('./configs/debug.config')
+require('./configs/passport.config')(app);
+
 
 hbs.registerHelper('ifUndefined', (value, options) => {
   if (arguments.length < 2)
@@ -30,8 +32,6 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 app.locals.title = 'Express - Generated with IronGenerator';
 
 app.use(flash());
-require('./passport')(app);
-    
 
 const index = require('./routes/index.routes');
 app.use('/', index);
