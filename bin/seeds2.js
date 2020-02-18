@@ -1,8 +1,9 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const Film = require('../models/film.model');
 
 const dbName = 'madriz-de-cine';
-mongoose.connect("process.env.REMOTEDB")
+mongoose.connect(`${process.env.REMOTEDB}`)
 
 
 const films = [
