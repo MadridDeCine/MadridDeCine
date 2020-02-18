@@ -74,26 +74,20 @@ router.get('/user/edit/:id',ensureLogin.ensureLoggedIn(),(req,res)=>{
   .catch(err => console.log("Ha ocurrido un error",err))
 })
 
-router.post('/user/edit/:id',(req,res)=>{
-
-  console.log(req.body)
+router.post('/user/edit/:id',uploadCloud.single("phototoupload"),(req,res)=>{
+  console.log(
+    "Y esto es lo que hace multer cuando colabora con Cloudinary",
+    req.file
+  )
   let {username,password,email} = req.body
-  const hashPass=""
-  const salt = bcrypt.genSaltSync(bcryptSalt)
-  
-  // if(req.body.password===""){hashPass=req.user.password}else{hashPass = bcrypt.hashSync(password, salt)}
-  
-  console.log("soy haspas",hashPass)
 
-  // uploadCloud.single("phototoupload"),
-  // (req, res, next) => {
-  //   console.log(
-  //     "Y esto es lo que hace multer cuando colabora con Cloudinary",
-  //     req.file
-  //   )}
-    // path:req.file.secure_url
-  User.findByIdAndUpdate(req.params.id, {username,password:hashPass,email})
+  const salt = bcrypt.genSaltSync(bcryptSalt)
+  const hashPass = bcrypt.hashSync(password, salt)
+
+  
+  User.findByIdAndUpdate(req.params.id, {username,password:hashPass,email,path:req.file.secure_url})
   .then(x=> res.redirect('/auth/user'))
+  .catch(err => console.log(err))
 })
 
 
