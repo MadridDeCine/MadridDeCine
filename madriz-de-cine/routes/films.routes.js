@@ -13,16 +13,23 @@ router.get('/',(req,res) => {
     .catch(err => console.log("Ha ocurrido un error",err))
     })
 
-    router.get('/new',(req,res) => res.render('film/new-film'))
+router.get('/new',(req,res) => res.render('film/new-film'))
 
 router.post('/new',(req,res) => {
 
   let {title,year,director,argument,place,actors} = req.body
+  console.log(typeof actors)
+  uptActors=[]
 
-    uptActors=[]
-    actors.forEach(elm => {
-      uptActors.push({name:elm})
-    });
+  if(actors){
+    if(typeof actors === "string"){
+      uptActors.push({name:actors})
+    }else{
+      actors.forEach(elm => {
+        uptActors.push({name:elm})
+      })
+    }
+  }
 
     Film.create({title,year,director,argument,place,actors:uptActors})
         .then(theFilm => res.redirect('/film/new'))
