@@ -7,12 +7,12 @@
   <hr>
 
   {{#each suggestions}}
-    {{!-- <a href="/film/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
-    <a href="/film/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
-    <a href="/film/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a> --}}
+    <a href="/suggestion/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+    <a href="/suggestion/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
+    <a href="/suggestion/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
     <p>{{name}}</p>
     
     <hr>
   {{/each}}
-  {{!-- <a href="/film/new" class="btn btn-dark">Crear nueva montaña rusa</a> --}}
+  <a href="/suggestion/new" class="btn btn-dark">Crear nueva sugerencia</a>
 </div>
