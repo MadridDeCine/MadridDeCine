@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Met = require('../models/meeting.model')
+const User = require('../models/user.model')
 const uploadCloud = require("../configs/cloudinary.config");
 
 
@@ -23,14 +24,18 @@ console.log(
   req.file
 )
 
-  Met.create({name,description,place,hour,date,path:req.file.secure_url})
+  Met.create({name,description,place,hour,date,path:req.file.secure_url,user:req.user._id})
       .then(theMet => res.redirect('/met/new'))
       .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
 })
 
 router.get('/:id',(req,res) => {
   Met.findById(req.params.id)
-  .then(theMet => res.render('met/met-details', theMet))
+  .populate('user')
+  .then(theMet => {
+    res.render('met/met-details', theMet)
+    console.log(theMet)
+  })
   .catch(err => console.log("Ha ocurrido un error",err))
   
 })
@@ -57,6 +62,24 @@ let {name,description,hour,date,place} = req.body
 
 Met.findByIdAndUpdate(req.params.id, {name,description,hour,place,date,path:req.file.secure_url})
 .then(x=> res.redirect(`/met/${req.params.id}`))
+.catch(err => console.log("Ha ocurrido un error",err))
+
+})
+
+router.post('/addParticipant/:id',(req,res)=>{
+  let userId = req.user._id
+  console.log("hola :)")
+  let metParticipants = {
+    $push:{
+      user:userId
+    }
+  }
+
+  Met.findByIdAndUpdate(req.params.id,metParticipants)
+  .then(res.redirect(`/met/${req.params.id}`))
+  .catch(err => console.log("error",err))
+
+  
 })
 
 module.exports = router
