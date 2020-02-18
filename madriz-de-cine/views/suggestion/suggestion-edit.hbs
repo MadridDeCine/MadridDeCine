@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>edicion de sugerencia</h2>
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">Editar Pelicula</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/suggestion/edit/{{_id}}" method="post">
+                <div class="form-group">
+                    <label for="name-input">Nombre</label>
+                    <input name="name" type="text" class="form-control" id="title-input" value="{{name}}">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Descripción</label>
+                    <input name="description" type="text" class="form-control" id="description" value="{{description}}">
+                </div>
+                <div class="form-group">
+                    <label for="address-input">Dirección</label>
+                    <input name="address" type="text" class="form-control" id="address-input" value="{{address}}">
+                </div>
+                <div class="form-group">
+                    <label for="recommendation-input">Place</label>
+                    <input name="recommendation" type="text" class="form-control" id="recommendation-input"
+                        value="{{recommendation}}">
+                </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-dark">Editar Sugerencia</button>
+        <a href="/film" class="btn btn-dark">Volver</a>
+
+        </form>
+    </div>
+
+</div>
+</div>
