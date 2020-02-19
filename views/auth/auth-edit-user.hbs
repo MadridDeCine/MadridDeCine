@@ -8,7 +8,7 @@
 
     <div class="col-md-6">
 
-      <form action="/auth/user/edit/{{_id}}" method="post" enctype="multipart/form-data">
+      <form action="/user/edit/{{_id}}" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username-input">Username</label>
           <input name="username" type="text" class="form-control" id="username-input" value="{{username}}">
@@ -27,7 +27,7 @@
         </div>
 
         <button type="submit" class="btn btn-dark">Edit Info</button>
-        <a href="/auth/user" class="btn btn-dark">go back</a>
+        <a href="/user" class="btn btn-dark">go back</a>
 
       </form>
     </div>

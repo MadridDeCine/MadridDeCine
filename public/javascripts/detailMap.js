@@ -1,31 +1,43 @@
-let initialCoords = {
-    lat: 41.3977381,
-    lng: 2.190471916
-  },myMap
+// let initialCoords = {
+//     lat: 40.3977381,
+//     lng: -3.790471916
+//   },
+let initialCoords,myMap
 
-// function initMap() {
-//   // Opciones de mapa
-//   let mapOptions = {
-//     center: initialCoords,
-//     zoom: 5
-//   }
-//   myMap = new google.maps.Map(document.querySelector('#myMap'), mapOptions)
-//   getRestaurants()
-// }
+    // console.log("Tengo que funcionar",setInitialCoords(document.getElementById('myId').innerText))
+    setInitialCoords(document.getElementById('myId').innerText)
+    .then(value=>initMap(value))
 
+function initMap(cord) {
 
+    const mapOptions = {center: cord,zoom: 10}
+    console.log(mapOptions)
+    myMap = new google.maps.Map(document.querySelector('#myMap'), mapOptions)
+    // console.log(document.getElementById('myId').innerText)
+    getFilm(document.getElementById('myId').innerText)
+}
 
-function initMap() {
-    const mapOptions = {center: initialCoords,zoom: 16}
-    const myMap = new google.maps.Map(document.querySelector('#myMap'), mapOptions)
+function setInitialCoords(id){
+    
+     return axios.get(`/film/api/${id}`)
+        .then(response => {
+            const film = response.data
+            return myCoords={lat: film.coords.lat,lng: film.coords.lng}
+        })
+        .catch(error => console.log(error))
 
-    // Opciones de marcador
-    // const markerOptions = {
-    //     position: directions.ironhackBCN.coords,
-    //     map: myMap,
-    //     title: directions.ironhackBCN.title
-    // }   
+}
 
-    // // Instancia de marcador
-    // new google.maps.Marker(markerOptions)
+function getFilm(id){
+    axios.get(`/film/api/${id}`)
+        .then(response => {
+            const film = response.data
+            placeFilm(film)
+        })
+        .catch(error => console.log(error))
+}
+
+function placeFilm(film){
+    const center = {lat:film.coords.lat,lng:film.coords.lng}
+    new google.maps.Marker({ position: center, map: myMap, title: film.title })
 }
