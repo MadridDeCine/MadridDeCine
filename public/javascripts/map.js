@@ -36,27 +36,16 @@ function placeFilmsInMap(films, myMap) {
         let marker = new google.maps.Marker({ position: center, map: myMap, icon: iconBase + 'movies.png' })
         let infowindow = new google.maps.InfoWindow({ content: oneFilm.title, closeOnMapClick: true, shadow: true })
         marker.addListener('click', () => {
-            // if (activeInfoWindow) {
-            //     activeInfoWindow.close();
-            // }
-            // infowindow.open(myMap, marker);
-            // activeInfoWindow = infowindow;
-            window.location=`/film/${oneFilm._id}`
+            window.location = `/film/${oneFilm._id}`
+        })
+        marker.addListener("mouseover", () => {
+            infowindow.open(myMap, marker)
+            activeInfoWindow = infowindow
 
-                // axios.get('/login', {username: username, password: password})
-                //     .then(function (response) {
-                //         if (response.data.redirect == '/') {
-                //             window.location = "/index"
-                //         } else if (response.data.redirect == '/login'){
-                //             window.location = "/login"
-                //         }
-                //     })
-                //     .catch(function(error) {
-                //         window.location = "/login"
-                //     })
+            marker.addListener("mouseout", () => {
+                activeInfoWindow.close()
+            }
+            )
         })
     })
 }
-
-
-
