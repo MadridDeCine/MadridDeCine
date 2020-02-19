@@ -45,8 +45,8 @@ const films = [
     image: "https://res.cloudinary.com/dw1febtea/image/upload/v1581944595/scheweppes_u3wbat.jpg",
     place: "Plaza de Callao",
     coords: {
-      lat: 40.420436,
-      lng: -3.704041
+      lat: 40.420178,
+      lng: -3.706165
     }
   },
   {
