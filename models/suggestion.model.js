@@ -8,7 +8,7 @@ const suggestionSchema = new Schema({
     },
     description: String,
     address: String,
-    recommendation: String
+    recommendation: String,
 }, {
     timestamps: true
 })

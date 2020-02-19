@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const Suggestion = require('../models/suggestion.model')
+const Film = require('../models/film.model')
+const ensureLogin = require("connect-ensure-login");
+
 
 
 // Listado de sugerencias
@@ -13,14 +16,26 @@ router.get('/', (req, res) => {
 
 
 // Creación de sugerencias
-router.get('/new', (req, res) => res.render('suggestion/suggestion-new'))
-router.post('/new', (req, res) => {
+router.get('/new/:id',ensureLogin.ensureLoggedIn(), (req, res) => res.render('suggestion/suggestion-new',{id:req.params.id}))
+
+router.post('/new/:id', (req, res) => {
   
   const { name, description, address, recommendation } = req.body
+
+  let sugId
   
   Suggestion.create({ name, description, address, recommendation })
-  .then(() => res.redirect('/suggestion'))
-  .catch(err => console.log(err))
+    .then((theSuggest) => sugId=theSuggest._id)
+    .then(x=>{
+      let addSuggestToFilm = {$push:{suggestion:sugId}}
+      Film.findByIdAndUpdate(req.params.id,addSuggestToFilm)
+        .then(x=>res.redirect(`/film/${req.params.id}`))
+        .catch(err=>console.log(err))
+    })
+    .catch(err => console.log(err))
+
+  
+
 })
 
 // Eliminar celebridad
