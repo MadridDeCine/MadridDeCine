@@ -1,6 +1,6 @@
 // let initialCoords = {
-//     lat: 41.3977381,
-//     lng: 2.190471916
+//     lat: 40.4165000,
+//     lng: -3.7025600
 //   },
 //   myMap
 
@@ -19,7 +19,7 @@
 function initMap() {
     // Opciones de mapa
     const mapOptions = {
-        center: directions.ironhackBCN.coords,
+        center: directions.ironhackMadrid.coords,
         zoom: 15
     }
 
