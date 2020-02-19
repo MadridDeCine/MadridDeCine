@@ -41,16 +41,6 @@ router.post('/new',uploadCloud.single("phototoupload"),uploadCloud.single("photo
         .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
 })
 
-router.get('/:id',(req,res) => {
-    Film.findById(req.params.id)
-    .then(theFilm => res.render('film/film-details', theFilm))
-    .catch(err => console.log("Ha ocurrido un error",err))
-    
-})
-
-
-
-
 router.get('/delete/:id',(req,res) => {
 
     Film.findByIdAndDelete(req.params.id)
@@ -77,6 +67,28 @@ router.post('/edit/:id',(req,res)=>{
 
   Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors})
   .then(x=> res.redirect(`/film/${req.params.id}`))
+})
+
+//------API REST ESCUPO JSON-------
+router.get('/api', (req, res) => {
+	Film.find()
+		.then(allFilms => res.json(allFilms))
+		.catch(err => console.log("yooooooooooooooo",err))
+})
+
+router.get('/api/:id', (req, res) => {
+	Film.findById(req.params.id)
+		.then(theRestaurant => res.json(theRestaurant))
+		.catch(err => console.log(err))
+})
+
+
+//ESTOO LOOO ULTIMOOOOOO
+router.get('/:id',(req,res) => {
+  Film.findById(req.params.id)
+  .then(theFilm => res.render('film/film-details', theFilm))
+  .catch(err => console.log("Ha ocurrido un error",err))
+  
 })
 
 
