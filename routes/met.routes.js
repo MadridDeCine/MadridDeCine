@@ -23,23 +23,13 @@ let {name,description,place,date,hour} = req.body
 let metId;
  
   Met.create({name,description,place,hour,date,path:req.file.secure_url,user:req.user._id})
-      .then(theMet => {
-        // console.log("ME LLAMAN DE CREATE",theMet)
-        console.log("SOY EL NUEVO ID DE MET",theMet._id)
-        metId=theMet._id
-      })
+      .then(theMet => metId=theMet._id)
       .then(x => {
-        
-        let addMeeting = {
-          $push:{
-            meeting:metId
-          }
-        }
-        console.log(metId)
+        let addMeeting = {$push:{meeting:metId}}
         User.findByIdAndUpdate(req.user._id,addMeeting)
         .then(x=>res.redirect('/met'))
         .catch(err=>console.log(err))
-      } )
+      })
       .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
 
       

@@ -33,7 +33,23 @@
     </p>
   {{/each}}
 
-  
+  <h5>Sugerencias:</h5>
+    <a href="/suggestion/new/{{_id}}" class="btn btn-dark">Add one!</a>
+  <hr>
+  {{#each suggestion}}
+
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
+    <p class="card-text">{{description}}</p>
+    <p class="card-text">{{recommendation}}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+  {{/each}}
+
 
   <a href="/film" class="btn btn-dark">Volver</a>
 

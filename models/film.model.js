@@ -15,6 +15,7 @@ const filmSchema = new Schema({
     argument: String,
     image: String,
     place: String,
+    suggestion: [{ type: mongoose.Schema.ObjectId, ref: 'Suggestion'}],
     coords: {
       lat: Number,
       lng: Number

@@ -86,6 +86,7 @@ router.get('/api/:id', (req, res) => {
 //ESTOO LOOO ULTIMOOOOOO
 router.get('/:id',(req,res) => {
   Film.findById(req.params.id)
+  .populate('suggestion')
   .then(theFilm => res.render('film/film-details', theFilm))
   .catch(err => console.log("Ha ocurrido un error",err))
   
