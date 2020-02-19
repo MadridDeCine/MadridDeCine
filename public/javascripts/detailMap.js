@@ -10,7 +10,7 @@ let initialCoords,myMap
 
 function initMap(cord) {
 
-    const mapOptions = {center: cord,zoom: 10}
+    const mapOptions = {center: cord,zoom: 15}
     console.log(mapOptions)
     myMap = new google.maps.Map(document.querySelector('#myMap'), mapOptions)
     // console.log(document.getElementById('myId').innerText)

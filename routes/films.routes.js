@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 const Film = require('../models/film.model')
-const uploadCloud = require("../configs/cloudinary.config");
+const User = require('../models/user.model')
+const ensureLogin = require("connect-ensure-login")
 
-
-
+const uploadCloud = require("../configs/cloudinary.config")
 
 // Aquí los endpoints
 
@@ -20,10 +20,7 @@ router.get('/new',(req,res) => res.render('film/new-film'))
 router.post('/new',uploadCloud.single("phototoupload"),uploadCloud.single("phototoupload2"),(req,res) => {
 
   let {title,year,director,argument,place,actors} = req.body
-  console.log(
-    "Y esto es lo que hace multer cuando colabora con Cloudinary",
-    req.file
-  )
+  
   uptActors=[]
 
   if(actors){
@@ -50,9 +47,7 @@ router.get('/delete/:id',(req,res) => {
 
 router.get('/edit/:id',(req,res)=>{
   Film.findById(req.params.id)
-  .then(theFilm => {
-    console.log(theFilm)
-    res.render('film/edit-film', theFilm)})
+  .then(theFilm => res.render('film/edit-film', theFilm))
   .catch(err => console.log("Ha ocurrido un error",err))
 })
 
@@ -63,11 +58,22 @@ router.post('/edit/:id',(req,res)=>{
   uptActors=[]
   actors.forEach(elm => {
     uptActors.push({name:elm})
-  });
+  })
 
   Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors})
   .then(x=> res.redirect(`/film/${req.params.id}`))
+  .catch(err=>console.log(err))
+
 })
+
+router.post('/addFavorite/:id',ensureLogin.ensureLoggedIn(), (req, res) => {
+
+  let addfavs = {$push:{favs:req.params.id}}
+  
+    User.findByIdAndUpdate(req.user._id,addfavs)
+      .then(x=>res.redirect('/user'))
+      .catch(err=>console.log(err))
+    })
 
 //------API REST ESCUPO JSON-------
 router.get('/api', (req, res) => {
@@ -78,7 +84,7 @@ router.get('/api', (req, res) => {
 
 router.get('/api/:id', (req, res) => {
 	Film.findById(req.params.id)
-		.then(theRestaurant => res.json(theRestaurant))
+		.then(theFilm => res.json(theFilm))
 		.catch(err => console.log(err))
 })
 

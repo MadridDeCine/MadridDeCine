@@ -3,8 +3,8 @@ const router = express.Router()
 
 const Met = require('../models/meeting.model')
 const User = require('../models/user.model')
-const uploadCloud = require("../configs/cloudinary.config");
-const ensureLogin = require("connect-ensure-login");
+const uploadCloud = require("../configs/cloudinary.config")
+const ensureLogin = require("connect-ensure-login")
 
 
 
@@ -20,7 +20,7 @@ router.post('/new',uploadCloud.single("phototoupload"),(req,res) => {
 
 let {name,description,place,date,hour} = req.body
 
-let metId;
+let metId
  
   Met.create({name,description,place,hour,date,path:req.file.secure_url,user:req.user._id})
       .then(theMet => metId=theMet._id)

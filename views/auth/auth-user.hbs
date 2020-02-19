@@ -5,3 +5,25 @@ Bienvenido {{username}}
 <img src="{{path}}">
 
 <a href="/user/edit/{{_id}}">Editar</a>
+
+<h5>Favoritos</h5>
+<hr>
+<div class="row">
+
+
+{{#each favs}}
+<div class="col-3">
+  <div class="card" style="width: 18rem">
+    <img class="card-img-top" src="{{poster}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{year}}-{{place}}</h6>
+      <p class="card-text">{{director}}</p>
+      <p class="card-text">{{argument}}</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+</div>
+  {{/each}}
+  </div>

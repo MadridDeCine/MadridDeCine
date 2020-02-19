@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Suggestion = require('../models/suggestion.model')
 const Film = require('../models/film.model')
-const ensureLogin = require("connect-ensure-login");
+const ensureLogin = require("connect-ensure-login")
 
 
 
@@ -57,9 +57,7 @@ router.get('/:id',(req,res) => {
 
 router.get('/edit/:id',(req,res)=>{
   Suggestion.findById(req.params.id)
-  .then(oneSuggestion => {
-    console.log(oneSuggestion)
-    res.render('suggestion/suggestion-edit', oneSuggestion)})
+  .then(oneSuggestion => res.render('suggestion/suggestion-edit', oneSuggestion))
   .catch(err => console.log("Ha ocurrido un error al editar la sugerencia",err))
 })
 

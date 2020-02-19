@@ -1,6 +1,9 @@
 <div class="container">
 
   <h1 style="font-weight: 100">{{title}}</h1>
+  <form action="/film/addFavorite/{{_id}}" method="post">
+    <button type="submit" class="btn btn-dark">Add me!</button>
+  </form>
 
   <figure>
     <img src="{{poster}}" alt="cartel">
@@ -8,7 +11,7 @@
   </figure>
 
   <div id="myMap"></div>
-  <div id="myId" style="display:none;">{{_id}}</div>
+  <div id="myId" style="display:none">{{_id}}</div>
 
   <h4>Director:</h4>
   <p>{{director}}</p>
@@ -38,7 +41,7 @@
   <hr>
   {{#each suggestion}}
 
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
