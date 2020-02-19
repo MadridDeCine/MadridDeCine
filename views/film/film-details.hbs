@@ -7,6 +7,8 @@
     <img src="{{image}}" alt="imagen del lugar">
   </figure>
 
+  <div id="myMap"></div>
+
   <h4>Director:</h4>
   <p>{{director}}</p>
   <hr>
@@ -35,3 +37,8 @@
   <a href="/film" class="btn btn-dark">Volver</a>
 
 </div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../javascripts/mapStyles.js"> </script> 
+<script src="../javascripts/detailMap.js"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArikc1-VRJiLkBi6oVMa4RRxR4d1r1ATQ&callback=initMap"></script>
