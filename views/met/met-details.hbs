@@ -2,6 +2,10 @@
 
   <h1 style="font-weight: 100">{{name}}</h1>
 
+  <form action="/met/addParticipant/{{_id}}" method="post">
+    <button type="submit" class="btn btn-dark">Add me!</button>
+  </form>
+  <br><br>
   <figure>
     <img src="{{path}}" alt="cartel">
   </figure>
@@ -22,8 +26,11 @@
   <p>{{hour}}:</p>
   <hr>
 
-  
-  
+  <h5>Participants</h5>
+  {{#each user}}
+  <p>{{username}} will go</p>
+  {{/each}}
+  <hr>
 
   <a href="/met" class="btn btn-dark">Volver</a>
 

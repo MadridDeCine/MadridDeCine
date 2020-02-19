@@ -8,7 +8,7 @@ const meetingSchema = new Schema({
     date: String,
     hour:String,
     path:String,
-    user: [{ type: mongoose.Schema.ObjectId, ref: 'meeting'}]
+    user: [{ type: mongoose.Schema.ObjectId, ref: 'User'}]
 }, {
     timestamps: true
 })

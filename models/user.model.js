@@ -6,7 +6,7 @@ const userSchema = new Schema({
   password: String,
   email:String,
   path:String,
-  meeting: [{ type: mongoose.Schema.ObjectId, ref: 'user'}]
+  meeting: [{ type: mongoose.Schema.ObjectId, ref: 'Meeting'}]
 }, {
   timestamps: {
     createdAt: 'created_at',

@@ -17,8 +17,8 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/auth/user",
-  failureRedirect: "/auth/login",
+  successRedirect: "/user",
+  failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
@@ -50,7 +50,7 @@ router.post("/signup", (req, res, next) => {
               .then(user => {
                 req.login(user, function(err) {
                 if (err) { return next(err); }
-                return res.redirect('/auth/user');
+                return res.redirect('/user');
               })})
               .catch(() => res.render("auth/signup", { message: "Something went wrong" }))
         })
@@ -86,7 +86,7 @@ router.post('/user/edit/:id',uploadCloud.single("phototoupload"),(req,res)=>{
 
   
   User.findByIdAndUpdate(req.params.id, {username,password:hashPass,email,path:req.file.secure_url})
-  .then(x=> res.redirect('/auth/user'))
+  .then(x=> res.redirect('/user'))
   .catch(err => console.log(err))
 })
 
