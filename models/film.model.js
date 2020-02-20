@@ -6,20 +6,35 @@ const filmSchema = new Schema({
         type: String,
         required: true
     },
-    poster: String,
-    year: Number,
-    director: String,
+    poster: {
+        type: String,
+    },
+    year: {
+        type: String,
+        required: true
+    },
+    director: {
+        type: String,
+        required: true
+    },
     actors: [{
         name:String
     }],
+    genre:{
+        type: String,
+    },
+    country:String,
+    duration:String,
     argument: String,
     image: String,
     place: String,
-    suggestion: [{ type: mongoose.Schema.ObjectId, ref: 'Suggestion'}],
     coords: {
-      lat: Number,
-      lng: Number
-  }
+        lat: Number,
+        lng: Number,
+    },
+    // morePlaces:[String],
+    // moreCoords:[{lat:Number,lng:Number}],
+    suggestion: [{ type: mongoose.Schema.ObjectId, ref: 'Suggestion'}]
 }, {
     timestamps: true
 })

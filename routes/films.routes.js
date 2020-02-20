@@ -15,14 +15,23 @@ router.get('/',(req,res) => {
     .catch(err => console.log("Ha ocurrido un error",err))
     })
 
-router.get('/new',(req,res) => res.render('film/new-film'))
+router.get('/new',ensureLogin.ensureLoggedIn(),(req,res) => res.render('film/new-film'))
 
-router.post('/new',uploadCloud.single("phototoupload"),uploadCloud.single("phototoupload2"),(req,res) => {
+router.post('/new',uploadCloud.array("phototoupload"),(req,res) => {
 
   let {title,year,director,argument,place,actors} = req.body
   
-  uptActors=[]
+  let coords,poster,image
+  
+  coords={
+    lat:req.body.lat,
+    lng:req.body.lng
+  }
 
+  poster = req.files[0].secure_url
+  image = req.files[1].secure_url
+
+  uptActors=[]
   if(actors){
     if(typeof actors === "string"){
       uptActors.push({name:actors})
@@ -33,32 +42,37 @@ router.post('/new',uploadCloud.single("phototoupload"),uploadCloud.single("photo
     }
   }
 
-    Film.create({title,year,director,argument,place,actors:uptActors})
-        .then(theFilm => res.redirect('/film/new'))
-        .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
+  Film.create({title,year,director,argument,place,actors:uptActors,coords,poster,image})
+      .then(theFilm => res.redirect('/film/new'))
+      .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
 })
 
-router.get('/delete/:id',(req,res) => {
+router.get('/delete/:id',ensureLogin.ensureLoggedIn(),(req,res) => {
 
     Film.findByIdAndDelete(req.params.id)
     .then(x => res.redirect('/film'))
     .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
 })
 
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',ensureLogin.ensureLoggedIn(),(req,res)=>{
   Film.findById(req.params.id)
   .then(theFilm => res.render('film/edit-film', theFilm))
   .catch(err => console.log("Ha ocurrido un error",err))
 })
 
-router.post('/edit/:id',(req,res)=>{
+router.post('/edit/:id',uploadCloud.array("phototoupload"),(req,res)=>{
 
   let {title,year,director,argument,place,actors} = req.body
+  console.log("soy multer-------",req.files)
+  let coords,poster,image
+  
+  coords={
+    lat:req.body.lat,
+    lng:req.body.lng
+  }
 
-  // uptActors=[]
-  // actors.forEach(elm => {
-  //   uptActors.push({name:elm})
-  // })
+  poster = req.files[0].secure_url
+  image = req.files[1].secure_url
 
   uptActors=[]
 
@@ -72,7 +86,7 @@ router.post('/edit/:id',(req,res)=>{
     }
   }
 
-  Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors})
+  Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors,coords,poster,image})
   .then(x=> res.redirect(`/film/${req.params.id}`))
   .catch(err=>console.log(err))
 

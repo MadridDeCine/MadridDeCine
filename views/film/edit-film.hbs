@@ -12,7 +12,7 @@
 
     <div class="col-md-6">
 
-      <form action="/film/edit/{{_id}}" method="post">
+      <form action="/film/edit/{{_id}}" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title-input">Titulo</label>
           <input name="title" type="text" class="form-control" id="title-input" value="{{title}}">
@@ -36,8 +36,18 @@
           </textarea>
         </div>
 
+         <h5>Establece las coordenadas</h5>
         <div class="form-group">
-          <label for="actors-input">Actores:</label>
+          <label for="lat-input">latitud</label>
+          <input name="lat" type="text" class="form-control" id="lat-input" value="{{coords.lat}}">
+        </div>
+        <div class="form-group">
+          <label for="lng-input">longitud</label>
+          <input name="lng" type="text" class="form-control" id="lng-input" value="{{coords.lng}}">
+        </div>
+
+        <div class="form-group">
+          <label for="actors-input"><h5>Actores:</h5></label>
             {{#each actors}}
             <div class="form-group">
               <label for="actor-input">Actor</label>
@@ -45,6 +55,13 @@
             </div>
             {{/each}}
           </select>
+        </div>
+
+        <div class="form-group">
+          <label for="photo-input">Poster</label>
+          <input type="file" name="phototoupload"><br>
+          <label for="photo-input">Place Photo</label>
+          <input type="file" name="phototoupload"><br>
         </div>
 
         <button type="submit" class="btn btn-dark">Editar Pelicula</button>

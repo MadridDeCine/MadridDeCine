@@ -12,7 +12,7 @@ const bcryptSalt = 10
 const uploadCloud = require("../configs/cloudinary.config")
 
 
-router.get("/login", (req, res, next) => res.render("auth/login", { "message": req.flash("error") }))
+router.get("/login", ensureLogin.ensureLoggedOut(),(req, res, next) => res.render("auth/login", { "message": req.flash("error") }))
 
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/user",
@@ -25,7 +25,7 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup")
 })
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup",ensureLogin.ensureLoggedOut(), (req, res, next) => {
   
   const { username, password, email} = req.body
 
