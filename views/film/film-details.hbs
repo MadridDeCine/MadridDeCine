@@ -2,7 +2,7 @@
 
   <h1 style="font-weight: 100">{{title}}</h1>
   <form action="/film/addFavorite/{{_id}}" method="post">
-    <button type="submit" class="btn btn-dark">Add favourite!</button>
+    <button type="submit" class="btn btn-dark">Añademe a tus favoritos!</button>
   </form>
 
   <figure>
@@ -13,52 +13,68 @@
   <div id="myMap"></div>
   <div id="myId" style="display:none">{{_id}}</div>
 
-  <h4>Director:</h4>
+  <h5>Genero</h5>
+  <p>{{genre}}</p>
+  <hr>
+
+  <h4>Director</h4>
   <p>{{director}}</p>
   <hr>
 
-  <h5>Year:</h5>
-  <p><strong>{{year}}</strong>:</p>
+  <h5>Año</h5>
+  <p>{{year}}</p>
   <hr>
 
-  <h5>Place:</h5>
-  <p><strong>{{place}}</strong>:</p>
+  <h5>Pais</h5>
+  <p>{{country}}</p>
   <hr>
 
-  <h5>Argumento:</h5>
-  <p>{{argument}}:</p>
+  <h5>Duración</h5>
+  <p>{{duration}}</p>
   <hr>
 
-  <h5>Actores:</h5>
+  <h5>Localización</h5>
+  <p>{{place}}</p>
+  <hr>
+
+  <h5>Argumento</h5>
+  <p>{{argument}}</p>
+  <hr>
+
+  <h5>Actores</h5>
   {{#each actors}}
-    <p>
-      Name:{{name}}
-    </p>
+  <p>
+    {{name}}
+  </p>
   {{/each}}
 
-  <h5>Sugerencias:</h5>
-    <a href="/suggestion/new/{{_id}}" class="btn btn-dark">Add one!</a>
+  <h5>Sugerencias</h5>
+  <a href="/suggestion/new/{{_id}}" class="btn btn-dark">Añade una!</a>
   <hr>
-  {{#each suggestion}}
 
-  <div class="card" style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title">{{name}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
-    <p class="card-text">{{description}}</p>
-    <p class="card-text">{{recommendation}}</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+  <div class="container">
+    <div class="row">
+      {{#each suggestion}}
+      <div class="col card" style="width: 18rem">
+
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text">{{recommendation}}</p>
+          </div>
+       
+      </div>
+        {{/each}}
+
+    </div>
   </div>
-</div>
-  {{/each}}
-
 
   <a href="/film" class="btn btn-dark">Volver</a>
 
 </div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="../javascripts/mapStyles.js"> </script> 
+<script src="../javascripts/mapStyles.js"> </script>
 <script src="../javascripts/detailMap.js"> </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArikc1-VRJiLkBi6oVMa4RRxR4d1r1ATQ"></script>
