@@ -1,10 +1,14 @@
 <div class="container">
 
   <h1 style="font-weight: 100">{{title}}</h1>
-  <form action="/film/addFavorite/{{_id}}" method="post">
+  {{!-- <form action="/film/addFavorite/{{_id}}" method="post">
     <button type="submit" class="btn btn-dark">Añademe a tus favoritos!</button>
+  </form> --}}
+<div>
+  <form action="/film/addFavorite/{{_id}}" method="post">
+  <button type="submit" class="boton">Añademe a tus favoritas!</button>
   </form>
-
+</div>
 <div>
   <figure>
     <img src="{{poster}}" alt="cartel">
