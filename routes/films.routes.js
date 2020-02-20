@@ -91,7 +91,7 @@ router.post('/addFavorite/:id',ensureLogin.ensureLoggedIn(), (req, res) => {
 router.get('/api', (req, res) => {
 	Film.find()
 		.then(allFilms => res.json(allFilms))
-		.catch(err => console.log("yooooooooooooooo",err))
+		.catch(err => console.log("Ha ocurrido un error",err))
 })
 
 router.get('/api/:id', (req, res) => {

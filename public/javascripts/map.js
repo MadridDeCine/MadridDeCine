@@ -26,14 +26,18 @@ function getFilms(myMap) {
 }
 
 // Fuente imagentes
-let iconBase = 'https://maps.google.com/mapfiles/kml/shapes/'
+
 
 function placeFilmsInMap(films, myMap) {
     var activeInfoWindow
     films.forEach(oneFilm => {
+        let iconBase = {
+            url: 'https://res.cloudinary.com/dw1febtea/image/upload/v1582193118/claqueta1_qkhc1p.png',
+            scaledSize: new google.maps.Size(50, 60)
+        }
         console.log(oneFilm.title)
         const center = { lat: oneFilm.coords.lat, lng: oneFilm.coords.lng }
-        let marker = new google.maps.Marker({ position: center, map: myMap, icon: iconBase + 'movies.png' })
+        let marker = new google.maps.Marker({ position: center, map: myMap, icon: iconBase})
         let infowindow = new google.maps.InfoWindow({ content: oneFilm.title, closeOnMapClick: true, shadow: true })
         marker.addListener('click', () => {
             window.location = `/film/${oneFilm._id}`

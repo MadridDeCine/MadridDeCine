@@ -3,32 +3,32 @@
   <h1 style="font-weight: 100">{{name}}</h1>
 
   <form action="/met/addParticipant/{{_id}}" method="post">
-    <button type="submit" class="btn btn-dark">Add me!</button>
+    <button type="submit" class="btn btn-dark">Apuntate!</button>
   </form>
   <br><br>
   <figure>
     <img src="{{path}}" alt="cartel">
   </figure>
 
-  <h4>Description:</h4>
+  <h4>Descripción:</h4>
   <p>{{Description}}</p>
   <hr>
 
-  <h5>Place:</h5>
+  <h5>Lugar:</h5>
   <p>{{place}}</p>
   <hr>
 
-  <h5>Date:</h5>
+  <h5>Fecha:</h5>
   <p>{{date}}:</p>
   <hr>
 
-  <h5>Hour:</h5>
+  <h5>Hora:</h5>
   <p>{{hour}}:</p>
   <hr>
 
-  <h5>Participants</h5>
+  <h5>Participantes</h5>
   {{#each user}}
-  <p>{{username}} will go</p>
+  <p>{{username}} estará</p>
   {{/each}}
   <hr>
 

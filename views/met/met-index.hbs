@@ -2,8 +2,10 @@
 
   
 
-  <h1 style="font-weight: 100">Índice de Meetings</h1>
+  <h1 style="font-weight: 100">Índice de Eventos</h1>
   <hr>
+  <p>No te lo pienses cinefilo, este es tu espacio para quedar con otras personas con tus mismos intereses.</p>
+  <p>Apuntate al evento que mas te guste o crea el tuyo propio.</p>
 
   {{#each mets}}
     <a href="/met/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
@@ -13,5 +15,5 @@
     <hr>
   {{/each}}
 
-  <a href="/met/new" class="btn btn-dark">Create new Met</a>
+  <a href="/met/new" class="btn btn-dark">Create un nuevo evento</a>
 </div>
