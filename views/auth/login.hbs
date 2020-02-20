@@ -1,25 +1,31 @@
+<section class="login">
 
-<h2>Login</h2>
-
-<form action="/login" method="POST" id="form-container">
+<article class="articleLogin">
+  <h2>Login</h2>
+  <form action="/login" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
 
-  <br><br>
-
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+ 
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
-
   <button>Login</button>
+  </form>
+</article>
 
+<article class="articleSignup">
   <p class="account-message">
     Don't have an account yet?
     <a href="/signup">Signup</a>
   </p>
-</form>
+</article>
+
+
+
+  
+
+</section>

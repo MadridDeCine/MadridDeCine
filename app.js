@@ -9,9 +9,9 @@ const flash      = require("connect-flash");
 const app = express();
 
 // DB, middlewares, locals & debug
+require('./configs/preprocessor.config')(app)
 require('./configs/mongoose.config')
 require('./configs/middleware.config')(app)
-require('./configs/preprocessor.config')(app)
 require('./configs/locals.config')(app)
 require('./configs/debug.config')
 require('./configs/passport.config')(app);

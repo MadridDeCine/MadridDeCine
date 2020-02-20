@@ -44,9 +44,27 @@ function placeMarkers(film){
     }
     const center = {lat:film.coords.lat,lng:film.coords.lng}
     let marker = new google.maps.Marker({ position: center, map: myMap, icon: iconBase })
-
+    let infowindow = new google.maps.InfoWindow({ content: film.title, closeOnMapClick: true, shadow: true })
+    marker.addListener("mouseover", () => {
+        infowindow.open(myMap, marker)
+        activeInfoWindow = infowindow
+    })
+    marker.addListener("mouseout", () => {
+        activeInfoWindow.close()
+    })
     film.morePlaces.forEach(elm => {
         let centerMorePlaces = {lat:elm.lat,lng:elm.lng}
         let marker = new google.maps.Marker({ position: centerMorePlaces, map: myMap, icon: iconBase })
+        let infowindow = new google.maps.InfoWindow({ content: elm.name, closeOnMapClick: true, shadow: true })
+        
+        marker.addListener("mouseover", () => {
+            infowindow.open(myMap, marker)
+            activeInfoWindow = infowindow
+        })
+        marker.addListener("mouseout", () => {
+            activeInfoWindow.close()
+        })
     });
+
+    
 }

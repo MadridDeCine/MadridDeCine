@@ -1,13 +1,31 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: antiquewhite;
 }
 
 a {
   color: #00B7FF;
 }
 
+.bg-añil {
+  background-color:#101357 ;
+}
+
+.index .hero{
+  margin:150px
+}
+
+.index h1{
+  font-size: 80px;
+}
+
+.login{}
+
 #myMap {
   width: 100%;
-  height: 600px;
+  height: 550px;
+  border:3px solid #2d545e;
+  margin:10px;
+  
 }
+
