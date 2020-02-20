@@ -38,6 +38,10 @@ function getFilm(id){
 }
 
 function placeFilm(film){
+    let iconBase = {
+        url: 'https://res.cloudinary.com/dw1febtea/image/upload/v1582193118/claqueta1_qkhc1p.png',
+        scaledSize: new google.maps.Size(50, 60)
+    }
     const center = {lat:film.coords.lat,lng:film.coords.lng}
-    new google.maps.Marker({ position: center, map: myMap, title: film.title })
+    let marker = new google.maps.Marker({ position: center, map: myMap, icon: iconBase })
 }

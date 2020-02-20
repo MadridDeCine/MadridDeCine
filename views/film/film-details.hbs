@@ -5,10 +5,17 @@
     <button type="submit" class="btn btn-dark">Añademe a tus favoritos!</button>
   </form>
 
+<div>
   <figure>
     <img src="{{poster}}" alt="cartel">
+  </figure>
+</div>
+
+<div>
+  <figure>
     <img src="{{image}}" alt="imagen del lugar">
   </figure>
+</div>
 
   <div id="myMap"></div>
   <div id="myId" style="display:none">{{_id}}</div>
@@ -50,22 +57,21 @@
 
   <h5>Sugerencias</h5>
   <a href="/suggestion/new/{{_id}}" class="btn btn-dark">Añade una!</a>
-  <hr>
 
   <div class="container">
     <div class="row">
       {{#each suggestion}}
-      <div class="col card" style="width: 18rem">
+      <div class="col-4 card" style="width: 18rem">
 
-          <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
-            <p class="card-text">{{description}}</p>
-            <p class="card-text">{{recommendation}}</p>
-          </div>
-       
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
+          <p class="card-text">{{description}}</p>
+          <p class="card-text">{{recommendation}}</p>
+        </div>
+
       </div>
-        {{/each}}
+      {{/each}}
 
     </div>
   </div>

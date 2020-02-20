@@ -10,51 +10,63 @@
 
       <form action="/film/new" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="title-input">Title</label>
-          <input name="title" type="text" class="form-control" id="title-input" placeholder="Title">
+          <label for="title-input">Titulo</label>
+          <input name="title" type="text" class="form-control" id="title-input" placeholder="Titulo de la pelicula">
         </div>
         <div class="form-group">
-          <label for="year-input">Year</label>
-          <input name="year" type="text" class="form-control" id="year-input" placeholder="19xx">
+          <label for="genre-input">Genero</label>
+          <input name="genre" type="text" class="form-control" id="genre-input" placeholder="Terror">
+        </div>
+        <div class="form-group">
+          <label for="year-input">Año</label>
+          <input name="year" type="text" class="form-control" id="year-input" placeholder="xxxx">
         </div>
         <div class="form-group">
           <label for="director-input">Director</label>
-          <input name="director" type="text" class="form-control" id="director-input" placeholder="Director mcDirector">
+          <input name="director" type="text" class="form-control" id="director-input" placeholder="Alex de la Iglesia">
         </div>
         <div class="form-group">
-          <label for="place-input">Place</label>
-          <input name="place" type="text" class="form-control" id="place-input" placeholder="A place">
+          <label for="duration-input">Duración</label>
+          <input name="duration" type="text" class="form-control" id="duration-input" placeholder="01:45">
         </div>
         <div class="form-group">
-          <label for="argument-textarea">Argument</label>
-          <textarea type="text"name="argument" id="argument-textarea" cols="60" rows="4" placeholder="Once upon a time...">
+          <label for="country-input">País</label>
+          <input name="country" type="text" class="form-control" id="country-input" placeholder="Pais">
+        </div>
+        <div class="form-group">
+          <label for="place-input">Localización</label>
+          <input name="place" type="text" class="form-control" id="place-input" placeholder="Gran Via">
+        </div>
+        <div class="form-group">
+          <label for="argument-textarea">Argumento</label>
+          <textarea type="text"name="argument" id="argument-textarea" cols="60" rows="4" placeholder="Cuentanos de que va">
           </textarea>
         </div>
 
         <h5>Establece las coordenadas</h5>
         <div class="form-group">
-          <label for="lat-input">latitud</label>
+          <label for="lat-input">Latitud</label>
           <input name="lat" type="text" class="form-control" id="lat-input" placeholder="0.000000">
         </div>
         <div class="form-group">
-          <label for="lng-input">longitud</label>
+          <label for="lng-input">Longitud</label>
           <input name="lng" type="text" class="form-control" id="lng-input" placeholder="0.000000">
         </div>
 
         <div class="form-group">
-          <label for="actors-input">Actores:</label>
-          <div class="btn btn-sm btn-success" id="newActor">add actor</div>
-          <div class="btn btn-sm btn-danger" id="delActor">del actor</div>
+          <label for="actors-input">Actores</label>
+          <div class="btn btn-sm btn-success" id="newActor">Añadir interprete</div>
+          <div class="btn btn-sm btn-danger" id="delActor">Eliminar interprete</div>
         </div>
 
         <div class="form-group">
-          <label for="photo-input">Poster</label>
+          <label for="photo-input">Poster pelicula</label>
           <input type="file" name="phototoupload"><br>
-          <label for="photo-input">Place Photo</label>
+          <label for="photo-input">Foto localización</label>
           <input type="file" name="phototoupload"><br>
         </div>
 
-        <button type="submit" class="btn btn-dark">Add Film</button>
+        <button type="submit" class="btn btn-dark">Añadir</button>
         <a href="/film" class="btn btn-dark">Volver</a>
 
       </form>

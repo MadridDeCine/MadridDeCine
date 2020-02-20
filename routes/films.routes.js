@@ -62,7 +62,7 @@ router.get('/edit/:id',ensureLogin.ensureLoggedIn(),(req,res)=>{
 
 router.post('/edit/:id',uploadCloud.array("phototoupload"),(req,res)=>{
 
-  let {title,year,director,argument,place,actors} = req.body
+  let {title,year,director,argument,place,actors, country, genre, duration} = req.body
   console.log("soy multer-------",req.files)
   let coords,poster,image
   
