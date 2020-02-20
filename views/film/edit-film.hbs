@@ -18,8 +18,20 @@
           <input name="title" type="text" class="form-control" id="title-input" value="{{title}}">
         </div>
         <div class="form-group">
+          <label for="genre-input">Genero</label>
+          <input name="genre" type="text" class="form-control" id="genre-input" value="{{genre}}">
+        </div>
+        <div class="form-group">
           <label for="year-input">Año</label>
           <input name="year" type="text" class="form-control" id="year-input" value="{{year}}">
+        </div>
+        <div class="form-group">
+          <label for="country-input">Pais</label>
+          <input name="country" type="text" class="form-control" id="country-input" value="{{country}}">
+        </div>
+        <div class="form-group">
+          <label for="duration-input">Duración</label>
+          <input name="duration" type="text" class="form-control" id="duration-input" value="{{duration}}">
         </div>
         <div class="form-group">
           <label for="director-input">Director</label>
@@ -56,7 +68,7 @@
             {{/each}}
           </select>
         </div>
-
+<p>Cinefilo recuerda poner las fotos, son obligatorias!</p>
         <div class="form-group">
           <label for="photo-input">Poster</label>
           <input type="file" name="phototoupload"><br>

@@ -19,7 +19,7 @@ router.get('/new',ensureLogin.ensureLoggedIn(),(req,res) => res.render('film/new
 
 router.post('/new',uploadCloud.array("phototoupload"),(req,res) => {
 
-  let {title,year,director,argument,place,actors,placeName,placeLat,placeLng} = req.body
+  let {title,year,director,argument,place,actors,placeName,placeLat,placeLng, genre, country, duration} = req.body
   
   let coords,poster,image
   
@@ -59,16 +59,16 @@ router.post('/new',uploadCloud.array("phototoupload"),(req,res) => {
     console.log("Holaaaa",arrPlaces)
   }
 
-  Film.create({title,year,director,argument,place,actors:uptActors,coords,poster,image,morePlaces:arrPlaces})
+  Film.create({title,year,director,argument,place,actors:uptActors,coords,poster,image,morePlaces:arrPlaces, genre, country, duration})
       .then(theFilm => {console.log(theFilm);res.redirect('/film/new')})
-      .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
+      .catch(err => console.log("Ha ocurrido un error creando peliculas en la base de datos",err))
 })
 
 router.get('/delete/:id',ensureLogin.ensureLoggedIn(),(req,res) => {
 
     Film.findByIdAndDelete(req.params.id)
     .then(x => res.redirect('/film'))
-    .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
+    .catch(err => console.log("Ha ocurrido un error borrando peliculas en la base de datos",err))
 })
 
 router.get('/edit/:id',ensureLogin.ensureLoggedIn(),(req,res)=>{
@@ -79,7 +79,7 @@ router.get('/edit/:id',ensureLogin.ensureLoggedIn(),(req,res)=>{
 
 router.post('/edit/:id',uploadCloud.array("phototoupload"),(req,res)=>{
 
-  let {title,year,director,argument,place,actors, country, genre, duration} = req.body
+  let {title,year,director,argument,place,actors, genre, country, duration} = req.body
   console.log("soy multer-------",req.files)
   let coords,poster,image
   
@@ -103,7 +103,7 @@ router.post('/edit/:id',uploadCloud.array("phototoupload"),(req,res)=>{
     }
   }
 
-  Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors,coords,poster,image})
+  Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors,coords,poster,image, genre, country, duration})
   .then(x=> res.redirect(`/film/${req.params.id}`))
   .catch(err=>console.log(err))
 
