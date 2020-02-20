@@ -30,7 +30,7 @@ let metId
         .then(x=>res.redirect('/met'))
         .catch(err=>console.log(err))
       })
-      .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
+      .catch(err => console.log("Ha ocurrido un error creando encuentros en la base de datos",err))
 
       
       
@@ -50,7 +50,7 @@ router.get('/delete/:id',(req,res) => {
 
   Met.findByIdAndDelete(req.params.id)
   .then(x => res.redirect('/met'))
-  .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
+  .catch(err => console.log("Ha ocurrido un error creando encuentros en la base de datos",err))
 })
 
 router.get('/edit/:id',(req,res)=>{

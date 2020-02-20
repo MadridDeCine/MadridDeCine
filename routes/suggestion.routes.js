@@ -33,9 +33,6 @@ router.post('/new/:id', (req, res) => {
         .catch(err=>console.log(err))
     })
     .catch(err => console.log(err))
-
-  
-
 })
 
 // Eliminar celebridad

@@ -3,31 +3,31 @@
   <div class="row">
 
     <div class="col-md-6">
-      <h1 style="font-weight: 100">Editar tu informacion personal {{this.username}}</h1>
+      <h1 style="font-weight: 100">Edita tu informacion personal {{this.username}}</h1>
     </div>
 
     <div class="col-md-6">
 
       <form action="/user/edit/{{_id}}" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="username-input">Username</label>
+          <label for="username-input">Usuario:</label>
           <input name="username" type="text" class="form-control" id="username-input" value="{{username}}">
         </div>
         <div class="form-group">
-          <label for="password-input">New Password</label>
+          <label for="password-input">Nueva contraseña: </label>
           <input name="password" type="password" class="form-control" id="password-input" placeholder="new pass">
         </div>
         <div class="form-group">
-          <label for="email-input">E-mail</label>
+          <label for="email-input">Correo:</label>
           <input name="email" type="text" class="form-control" id="email-input" value="{{email}}">
         </div>
         <div class="form-group">
-          <label for="photo-input">Photo</label>
+          <label for="photo-input">Foto:</label>
           <input type="file" name="phototoupload"><br>
         </div>
 
-        <button type="submit" class="btn btn-dark">Edit Info</button>
-        <a href="/user" class="btn btn-dark">go back</a>
+        <button type="submit" class="btn btn-dark">Editar</button>
+        <a href="/user" class="btn btn-dark">Volver</a>
 
       </form>
     </div>

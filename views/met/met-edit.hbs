@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-md-6">
-      <h1 style="font-weight: 100">Edit Meeting</h1>
+      <h1 style="font-weight: 100">Editar</h1>
       <figure>
         <img src="{{path}}" alt="cartel">
       </figure>
@@ -13,29 +13,29 @@
 
       <form action="/met/edit/{{_id}}" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="name-input">Name</label>
+          <label for="name-input">Nombre:</label>
           <input name="name" type="text" class="form-control" id="name-input" value="{{name}}">
         </div>
         <div class="form-group">
-          <label for="desc-input">Description</label>
+          <label for="desc-input">Descripción:</label>
           <input name="description" type="text" class="form-control" id="desc-input" value="{{description}}">
         </div>
         <div class="form-group">
-          <label for="place-input">Place</label>
+          <label for="place-input">Lugar:</label>
           <input name="place" type="text" class="form-control" id="place-input" value="{{place}}">
         </div>
         <div class="form-group">
-          <label for="hour-input">Hour</label>
+          <label for="hour-input">Hora:</label>
           <input name="hour" type="text" class="form-control" id="hour-input" value="{{hour}}">
         </div>
 
         <div class="form-group">
-          <label for="date-input">date</label>
+          <label for="date-input">Fecha:</label>
           <input name="date" type="date" class="form-control" id="date-input">
         </div>
 
         <div class="form-group">
-          <label for="photo-input">Poster</label>
+          <label for="photo-input">Poster:</label>
           <input type="file" name="phototoupload"><br>
         </div>
 

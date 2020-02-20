@@ -3,45 +3,40 @@
   <div class="row">
 
     <div class="col-md-6">
-      <h1 style="font-weight: 100">Create Met</h1>
+      <h1 style="font-weight: 100">Crear un evento</h1>
     </div>
 
     <div class="col-md-6">
 
       <form action="/met/new" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="name-input">Name</label>
+          <label for="name-input">Nombre:</label>
           <input name="name" type="text" class="form-control" id="name-input" placeholder="my meeting">
         </div>
         <div class="form-group">
-          <label for="descr-input">Description</label>
-          <input name="description" type="text" class="form-control" id="descr-input" placeholder="Let's catch pokemon!">
+          <label for="descr-input">Descripcion:</label>
+          <input name="description" type="text" class="form-control" id="descr-input"
+            placeholder="Ciclo de cine negro gratuito en Cine Callao">
         </div>
         <div class="form-group">
-          <label for="place-input">Place</label>
-          <input name="place" type="text" class="form-control" id="place-input" placeholder="Gran Via's Primark">
+          <label for="place-input">Lugar:</label>
+          <input name="place" type="text" class="form-control" id="place-input" placeholder="Plaza Callao">
         </div>
         <div class="form-group">
-          <label for="hour-input">Hour</label>
+          <label for="hour-input">Hora:</label>
           <input name="hour" type="text" class="form-control" id="hour-input" placeholder="17:30">
         </div>
         <div class="form-group">
-          <label for="date-input">date</label>
+          <label for="date-input">Fecha:</label>
           <input name="date" type="date" class="form-control" id="date-input">
         </div>
-        {{!-- <div class="form-group">
-          <label for="argument-textarea">Argumento</label>
-          <textarea type="text"name="argument" id="argument-textarea" cols="60" rows="4" placeholder="Once upon a time...">
-            
-          </textarea>
-        </div> --}}
 
         <div class="form-group">
-          <label for="photo-input">Poster</label>
+          <label for="photo-input">Poster:</label>
           <input type="file" name="phototoupload"><br>
         </div>
 
-        <button type="submit" class="btn btn-dark">Add Meeting</button>
+        <button type="submit" class="btn btn-dark">Añadir</button>
         <a href="/met" class="btn btn-dark">Volver</a>
 
       </form>
