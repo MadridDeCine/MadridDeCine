@@ -8,7 +8,7 @@ let initialCoords = {
 // Funcion que incia el mapa
 
 function initMap() {
-    let mapOptions = { center: initialCoords, zoom: 14 }
+    let mapOptions = { center: initialCoords, zoom: 14, styles: mapStyles.grey }
     myMap = new google.maps.Map(document.querySelector('#myMap'), mapOptions)
     getFilms(myMap)
 }
