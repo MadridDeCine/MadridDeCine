@@ -25,8 +25,7 @@ function getFilms(myMap) {
         .catch(error => console.log(error))
 }
 
-// Fuente imagentes
-
+// Fuente imagenes
 
 function placeFilmsInMap(films, myMap) {
     var activeInfoWindow
