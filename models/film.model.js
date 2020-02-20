@@ -14,7 +14,7 @@ const filmSchema = new Schema({
     image: String,
     place: String,
     coords: {lat: Number,lng: Number},
-    morePlaces:[{name:String,lat:String,lng:String}],
+    morePlaces:[{name:String,lat:Number,lng:Number}],
     suggestion: [{ type: mongoose.Schema.ObjectId, ref: 'Suggestion'}]
 }, {
     timestamps: true

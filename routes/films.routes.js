@@ -45,7 +45,7 @@ router.post('/new',uploadCloud.array("phototoupload"),(req,res) => {
   let arrPlaces = []
   if(placeName&&placeLat&&placeLng){
     if(typeof placeName === "string"){
-      newPlace={name:placeName,lat:placeLat,lng:placeLng}
+      arrPlaces.push({name:placeName,lat:placeLat,lng:placeLng})
     }else{
       for(let i = 0;i<placeName.length;i++){
         let obj = {}

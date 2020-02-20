@@ -32,16 +32,21 @@ function getFilm(id){
     axios.get(`/film/api/${id}`)
         .then(response => {
             const film = response.data
-            placeFilm(film)
+            placeMarkers(film)
         })
         .catch(error => console.log(error))
 }
 
-function placeFilm(film){
+function placeMarkers(film){
     let iconBase = {
         url: 'https://res.cloudinary.com/dw1febtea/image/upload/v1582193118/claqueta1_qkhc1p.png',
         scaledSize: new google.maps.Size(50, 60)
     }
     const center = {lat:film.coords.lat,lng:film.coords.lng}
     let marker = new google.maps.Marker({ position: center, map: myMap, icon: iconBase })
+
+    film.morePlaces.forEach(elm => {
+        let centerMorePlaces = {lat:elm.lat,lng:elm.lng}
+        let marker = new google.maps.Marker({ position: centerMorePlaces, map: myMap, icon: iconBase })
+    });
 }
