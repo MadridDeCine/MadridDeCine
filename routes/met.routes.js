@@ -71,23 +71,21 @@ Met.findByIdAndUpdate(req.params.id, {name,description,hour,place,date,path:req.
 })
 
 router.post('/addParticipant/:id',(req,res)=>{
-  let userId = req.user._id
-  console.log("hola :)")
 
   let metParticipants = {
     $push:{
-      user:userId
+      user:req.user._id
     }
   }
-
+  
   let addMeeting = {
     $push:{
       meeting:req.params.id
     }
   }
 
-  User.findByIdAndUpdate(req.userId,addMeeting)
   Met.findByIdAndUpdate(req.params.id,metParticipants)
+  .then(x=>User.findByIdAndUpdate(req.user._id,addMeeting))
   .then(res.redirect(`/met/${req.params.id}`))
   .catch(err => console.log("error",err))
 

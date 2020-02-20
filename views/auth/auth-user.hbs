@@ -10,20 +10,38 @@ Bienvenido {{username}}
 <hr>
 <div class="row">
 
-
-{{#each favs}}
-<div class="col-3">
-  <div class="card" style="width: 18rem">
-    <img class="card-img-top" src="{{poster}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{title}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{year}}-{{place}}</h6>
-      <p class="card-text">{{director}}</p>
-      <p class="card-text">{{argument}}</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+  {{#each favs}}
+    <div class="col-3">
+      <div class="card" style="width: 18rem">
+        <img class="card-img-top" src="{{poster}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{year}}-{{place}}</h6>
+          <p class="card-text">{{director}}</p>
+          <p class="card-text">{{argument}}</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   {{/each}}
-  </div>
+</div>
+
+<h5>Eventos a los que asistiras</h5>
+<hr>
+<div class="row">
+
+  {{#each meeting}}
+    <div class="col-3">
+      <div class="card" style="width: 18rem">
+        <img class="card-img-top" src="{{path}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{place}} {{date}} {{hour}}</h6>
+          <p class="card-text">{{description}}</p>
+          <a href="/met/{{_id}}" class="card-link">Ver evento</a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

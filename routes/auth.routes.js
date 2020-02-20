@@ -59,6 +59,7 @@ router.post("/signup",ensureLogin.ensureLoggedOut(), (req, res, next) => {
 router.get("/user",ensureLogin.ensureLoggedIn(),(req,res)=> {
   User.findById(req.user._id)
   .populate('favs')
+  .populate('meeting')
   .then(theUser=> res.render("auth/auth-user",theUser))
  
 })
