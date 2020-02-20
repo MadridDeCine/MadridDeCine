@@ -41,11 +41,9 @@ function placeFilmsInMap(films, myMap) {
         marker.addListener("mouseover", () => {
             infowindow.open(myMap, marker)
             activeInfoWindow = infowindow
-
-            marker.addListener("mouseout", () => {
-                activeInfoWindow.close()
-            }
-            )
+        })
+        marker.addListener("mouseout", () => {
+            activeInfoWindow.close()
         })
     })
 }

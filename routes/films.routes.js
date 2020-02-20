@@ -55,10 +55,22 @@ router.post('/edit/:id',(req,res)=>{
 
   let {title,year,director,argument,place,actors} = req.body
 
+  // uptActors=[]
+  // actors.forEach(elm => {
+  //   uptActors.push({name:elm})
+  // })
+
   uptActors=[]
-  actors.forEach(elm => {
-    uptActors.push({name:elm})
-  })
+
+  if(actors){
+    if(typeof actors === "string"){
+      uptActors.push({name:actors})
+    }else{
+      actors.forEach(elm => {
+        uptActors.push({name:elm})
+      })
+    }
+  }
 
   Film.findByIdAndUpdate(req.params.id, {title,year,director,argument,place,actors:uptActors})
   .then(x=> res.redirect(`/film/${req.params.id}`))
