@@ -19,7 +19,7 @@ router.get('/new',ensureLogin.ensureLoggedIn(),(req,res) => res.render('film/new
 
 router.post('/new',uploadCloud.array("phototoupload"),(req,res) => {
 
-  let {title,year,director,argument,place,actors} = req.body
+  let {title,year,director,argument,place,actors,placeName,placeLat,placeLng} = req.body
   
   let coords,poster,image
   
@@ -41,9 +41,26 @@ router.post('/new',uploadCloud.array("phototoupload"),(req,res) => {
       })
     }
   }
+  
+  let arrPlaces = []
+  if(placeName&&placeLat&&placeLng){
+    if(typeof placeName === "string"){
+      newPlace={name:placeName,lat:placeLat,lng:placeLng}
+    }else{
+      for(let i = 0;i<placeName.length;i++){
+        let obj = {}
+        obj.name = placeName[i]
+        obj.lat= placeLat[i]
+        obj.lng= placeLng[i]
+        console.log("Soy el objeto antes de ser pusheado",obj)
+        arrPlaces.push(obj)
+      }
+    }
+    console.log("Holaaaa",arrPlaces)
+  }
 
-  Film.create({title,year,director,argument,place,actors:uptActors,coords,poster,image})
-      .then(theFilm => res.redirect('/film/new'))
+  Film.create({title,year,director,argument,place,actors:uptActors,coords,poster,image,morePlaces:arrPlaces})
+      .then(theFilm => {console.log(theFilm);res.redirect('/film/new')})
       .catch(err => console.log("Ha ocurrido un error creando parques en la base de datos",err))
 })
 
