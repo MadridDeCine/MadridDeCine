@@ -1,29 +1,33 @@
-<div class="container">
-
-  <h1 style="font-weight: 100">{{title}}</h1>
-  {{!-- <form action="/film/addFavorite/{{_id}}" method="post">
-    <button type="submit" class="btn btn-dark">Añademe a tus favoritos!</button>
-  </form> --}}
-<div>
+<div class="right">
   <form action="/film/addFavorite/{{_id}}" method="post">
-  <button type="submit" class="boton">Añademe a tus favoritas!</button>
+    <button type="submit" class="btnAdd">Añademe a tus favoritas!</button>
   </form>
 </div>
-<div>
-  <figure>
-    <img src="{{poster}}" alt="cartel">
-  </figure>
-</div>
 
-<div>
-  <figure>
-    <img src="{{image}}" alt="imagen del lugar">
-  </figure>
+<div class="center">
+  <h1>{{title}}</h1>
 </div>
-
+<div class="container">
   <div id="myMap"></div>
-  <div id="myId" style="display:none">{{_id}}</div>
+  <div id="myId">{{_id}}</div>
+</div>
 
+<div class="container">
+  <div class="row around">
+    <div class="col-5">
+      <figure>
+        <img src="{{poster}}" alt="cartel">
+      </figure>
+    </div>
+    <div class="col-5">
+      <figure>
+        <img src="{{image}}" alt="imagen del lugar">
+      </figure>
+    </div>
+  </div>
+</div>
+
+<div class="container details">
   <h5>Genero</h5>
   <p>{{genre}}</p>
   <hr>
@@ -58,31 +62,40 @@
     {{name}}
   </p>
   {{/each}}
+</div>
 
-  <h5>Sugerencias</h5>
-  <a href="/suggestion/new/{{_id}}" class="btn btn-dark">Añade una!</a>
-
-  <div class="container">
-    <div class="row">
-      {{#each suggestion}}
-      <div class="col-4 card" style="width: 18rem">
-
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
-          <p class="card-text">{{description}}</p>
-          <p class="card-text">{{recommendation}}</p>
-        </div>
-
-      </div>
-      {{/each}}
-
+<div class="container">
+  <div class="row between">
+    <div class="col-6">
+      <h5>Sugerencias</ha>
+    </div>
+    <div class="col-6">
+      <a href="/suggestion/new/{{_id}}" class="btnEnd">Añade una!</a>
     </div>
   </div>
-
-  <a href="/film" class="btn btn-dark">Volver</a>
-
 </div>
+
+<div>
+  <div class="row">
+    {{#each suggestion}}
+    <div class="col-4 card" style="width: 18rem">
+
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
+        <p class="card-text">{{description}}</p>
+        <p class="card-text">{{recommendation}}</p>
+      </div>
+
+    </div>
+    {{/each}}
+
+  </div>
+</div>
+
+<a href="/film" class="btn btn-dark">Volver</a>
+
+
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../javascripts/mapStyles.js"> </script>
