@@ -1,18 +1,17 @@
-<div class="container">
+<div class="content-wrap mt-5">
 
   
 
-  <h1 style="font-weight: 100">Índice de Sugerencias</h1>
-
+  <h1 style="font-weight: 100">Índice de Sugerencias de los usuarios</h1>
+  
   <hr>
+  <div class="row">
 
-  {{#each suggestions}}
-    <a href="/suggestion/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
-    <a href="/suggestion/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
-    <a href="/suggestion/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
-    <p>{{name}}</p>
+    {{#each suggestions}}
     
-    <hr>
-  {{/each}}
-  <a href="/suggestion/new" class="btn btn-dark">Crear nueva sugerencia</a>
+      {{>suggestion this}}
+    
+    {{/each}}
+  </div>
+  
 </div>

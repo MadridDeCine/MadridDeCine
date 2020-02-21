@@ -1,19 +1,21 @@
-<div class="container">
+<div class="content-wrap mt-5">
 
   
 
   <h1 style="font-weight: 100">Índice de Eventos</h1>
+  <a href="/met/new" class="btn btn-dark">Crear un nuevo evento</a>
+
   <hr>
   <p>No te lo pienses cinefilo, este es tu espacio para quedar con otras personas con tus mismos intereses.</p>
   <p>Apuntate al evento que mas te guste o crea el tuyo propio.</p>
-
-  {{#each mets}}
-    <a href="/met/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
-    <a href="/met/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
-    <a href="/met/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
-    <h4>{{name}}</h4>
-    <hr>
-  {{/each}}
-
-  <a href="/met/new" class="btn btn-dark">Create un nuevo evento</a>
+  <div class="row">
+    {{#each mets}}
+      {{>mets this}}
+      {{!-- {<a href="/met/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+      <a href="/met/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
+      <a href="/met/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
+      <h4>{{name}}</h4>} --}}
+      <hr>
+    {{/each}}
+  </div>
 </div>

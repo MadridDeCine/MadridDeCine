@@ -2,7 +2,8 @@ buttonAdd = document.getElementById('newActor')
 buttonDel = document.getElementById('delActor')
 buttonAdd.addEventListener('click', () => {
 
-    let ref = buttonAdd.parentNode
+    let ref = document.getElementById('actors')
+    console.log(ref)
     let newDiv = document.createElement('div')
 
     let str=

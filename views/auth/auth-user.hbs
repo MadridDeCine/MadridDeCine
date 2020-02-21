@@ -28,7 +28,8 @@
 <div class="row">
 
   {{#each meeting}}
-    <div class="col-3">
+    {{>mets this}}
+    {{!-- <div class="col-3">
       <div class="card" style="width: 18rem">
         <img class="card-img-top" src="{{path}}" alt="Card image cap">
         <div class="card-body">
@@ -38,7 +39,7 @@
           <a href="/met/{{_id}}" class="card-link">Ver evento</a>
         </div>
       </div>
-    </div>
+    </div> --}}
   {{/each}}
 </div>
 </section>

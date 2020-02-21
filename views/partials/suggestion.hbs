@@ -1,0 +1,15 @@
+<div class="col-4 mb-2">
+  <div class="card"> 
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
+      <p class="card-text">{{description}}</p>
+      <hr>
+      <p class="card-text">Recomendacion:</p>
+      <p class="card-text">{{recommendation}}</p>
+      <a href="/suggestion/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+      <a href="/suggestion/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
+      <a href="/suggestion/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
+    </div>
+  </div>
+</div>

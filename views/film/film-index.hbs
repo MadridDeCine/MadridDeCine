@@ -1,18 +1,17 @@
-<div class="container">
+<div class="content-wrap mt-5">
 
   
 
   <h1 style="font-weight: 100">Índice de Peliculas</h1>
+  <a class="btnAdd"href="/film/new" class="btn">Crea una nueva pelicula</a>
   <hr>
+  <div class="row"> 
 
+  
   {{#each films}}
-    <a href="/film/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
-    <a href="/film/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
-    <a href="/film/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
-    <h4>{{title}}</h4>
-    <p>{{year}}</p>
-    <hr>
+    {{>filmIndex this}}
   {{/each}}
+  </div>
 
-  <a href="/film/new" class="btn">Crea una nueva pelicula</a>
+  
 </div>

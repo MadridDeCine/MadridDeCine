@@ -1,12 +1,14 @@
-<div class="col-4 mb-1">
-  <div class="card"> 
+<div class="col-4 mb-4">
+  <div class="card">
     <img class="card-img card-img-index" src="{{poster}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{year}}-{{place}}</h6>
       <p class="card-text">{{director}}</p>
       <p class="card-text">{{argument}}</p>
-      <a class="btnAdd" href="/film/{{_id}}" class="card-link">Ver pelicula</a>
+      <a href="/film/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+      <a href="/film/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
+      <a href="/film/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
     </div>
   </div>
 </div>
