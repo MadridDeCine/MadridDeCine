@@ -1,29 +1,25 @@
-Hola! :)
+<section class="profile">
+ 
+ <article class="d-flex mt-5">
+   <figure>
+      <img class="profilePic"src="{{path}}" alt="Foto de Perfil">
+    </figure>
+    <div class="ml-3">
+      <div>
+        <h2>{{username}}</h2>
+        <a class="btnAdd" href="/user/edit/{{_id}}">Editar</a>
+      </div>
+      <p class="mt-3 ">Bienvenido a Madriz de Cine {{username}}, explora tu perfil!</p>
+    </div>
+ </article>
 
-Bienvenido {{username}}
-
-<img src="{{path}}">
-
-<a href="/user/edit/{{_id}}">Editar</a>
 
 <h5>Favoritos</h5>
 <hr>
 <div class="row">
 
   {{#each favs}}
-    <div class="col-3">
-      <div class="card" style="width: 18rem">
-        <img class="card-img-top" src="{{poster}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{year}}-{{place}}</h6>
-          <p class="card-text">{{director}}</p>
-          <p class="card-text">{{argument}}</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>
-    </div>
+    {{>bigFilmCard this}}
   {{/each}}
 </div>
 
@@ -45,3 +41,5 @@ Bienvenido {{username}}
     </div>
   {{/each}}
 </div>
+</section>
+

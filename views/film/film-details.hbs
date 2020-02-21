@@ -1,100 +1,100 @@
-<div class="right">
-  <form action="/film/addFavorite/{{_id}}" method="post">
-    <button type="submit" class="btnAdd">Añademe a tus favoritas!</button>
-  </form>
-</div>
+<section class="film content-wrap">
 
-<div class="center">
-  <h1>{{title}}</h1>
-</div>
-<div class="container">
-  <div id="myMap"></div>
-  <div id="myId">{{_id}}</div>
-</div>
-
-<div class="container">
-  <div class="row around">
-    <div class="col-5">
-      <figure>
-        <img src="{{poster}}" alt="cartel">
-      </figure>
-    </div>
-    <div class="col-5">
-      <figure>
-        <img src="{{image}}" alt="imagen del lugar">
-      </figure>
-    </div>
+  <div class="center">
+    <h1>{{title}}</h1>
+    <form action="/film/addFavorite/{{_id}}" method="post" class="addFav">
+      <button type="submit" class="btnAdd"> + Favorito</button>
+    </form>
   </div>
-</div>
+  
+    <div id="myMap"></div>
+    <div id="myId">{{_id}}</div>
+  
 
-<div class="container details">
-  <h5>Genero</h5>
-  <p>{{genre}}</p>
-  <hr>
-
-  <h4>Director</h4>
-  <p>{{director}}</p>
-  <hr>
-
-  <h5>Año</h5>
-  <p>{{year}}</p>
-  <hr>
-
-  <h5>Pais</h5>
-  <p>{{country}}</p>
-  <hr>
-
-  <h5>Duración</h5>
-  <p>{{duration}}</p>
-  <hr>
-
-  <h5>Localización</h5>
-  <p>{{place}}</p>
-  <hr>
-
-  <h5>Argumento</h5>
-  <p>{{argument}}</p>
-  <hr>
-
-  <h5>Actores</h5>
-  {{#each actors}}
-  <p>
-    {{name}}
-  </p>
-  {{/each}}
-</div>
-
-<div class="container">
-  <div class="row between">
-    <div class="col-6">
-      <h5>Sugerencias</ha>
-    </div>
-    <div class="col-6">
-      <a href="/suggestion/new/{{_id}}" class="btnEnd">Añade una!</a>
-    </div>
-  </div>
-</div>
-
-<div>
-  <div class="row">
-    {{#each suggestion}}
-    <div class="col-4 card" style="width: 18rem">
-
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
-        <p class="card-text">{{description}}</p>
-        <p class="card-text">{{recommendation}}</p>
+  
+    <div class="row around">
+      <div class="col-5">
+        <figure>
+          <img src="{{poster}}" alt="cartel">
+        </figure>
       </div>
+      <div class="col-5">
+        <figure>
+          <img src="{{image}}" alt="imagen del lugar">
+        </figure>
+      </div>
+    </div>
+  
+
+  <div class="details">
+    
+    <h5>Titulo</h5>
+    <p>{{title}}</p>
+    <hr>
+
+    <h5>Director</h5>
+    <p>{{director}}</p>
+    <hr>
+
+    <h5>Genero</h5>
+    <p>{{genre}}</p>
+    <hr>
+
+    <h5>Año</h5>
+    <p>{{year}}</p>
+    <hr>
+
+    <h5>Pais</h5>
+    <p>{{country}}</p>
+    <hr>
+
+    <h5>Duración</h5>
+    <p>{{duration}}</p>
+    <hr>
+
+    <h5>Localización</h5>
+    <p>{{place}}</p>
+    <hr>
+
+    <h5>Argumento</h5>
+    <p>{{argument}}</p>
+    <hr>
+
+    <h5>Actores</h5>
+    {{#each actors}}
+    <p>
+      {{name}}
+    </p>
+    {{/each}}
+  </div>
+  <div class="text-center m-5">
+  
+    <h5 class="d-inline">Sugerencias</h5>
+    <a href="/suggestion/new/{{_id}}" class="btnAdd m-3"> + Añade una!</a>
+    
+  </div>
+
+  <div>
+    <div class="row justify-content-center">
+      {{#each suggestion}}
+      <div class="col-4 card m-1">
+
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{address}}</h6>
+          <p class="card-text">{{description}}</p>
+          <p class="card-text">{{recommendation}}</p>
+        </div>
+
+      </div>
+      {{/each}}
 
     </div>
-    {{/each}}
-
   </div>
-</div>
 
-<a href="/film" class="btn btn-dark">Volver</a>
+  <a href="/film" class="btn btn-dark">Volver</a>
 
+</section>
 
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -5,6 +5,9 @@ body {
   position: relative;
   min-height: 100vh; }
 
+.content-wrap {
+  padding-bottom: 2.5rem; }
+
 a {
   color: #00B7FF; }
 
@@ -24,9 +27,6 @@ a {
 
 .footer div {
   padding: 5px; }
-
-.content-wrap {
-  padding-bottom: 2.5rem; }
 
 .index .hero {
   margin: 100px;
@@ -83,13 +83,30 @@ a {
   border: 1px solid black;
   border-radius: 5px; }
 
+.film .addFav {
+  display: block; }
+
 #myMap {
   width: 100%;
   height: 550px;
   border: 3px solid #2d545e;
   margin-bottom: 130px; }
 
-h1 {
+.profile .profilePic {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #101357; }
+
+.card-img-index {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.5s; }
+
+.card-body {
+  height: 250px; }
+
+.sombra {
   font-size: 3em;
   text-shadow: 4px 2px 3px #666; }
 
@@ -106,28 +123,22 @@ img {
 .btnAdd {
   background-color: #101357;
   color: seashell;
-  height: 3em;
-  width: 15em;
-  margin: 5em 5em;
-  border-radius: 2em; }
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: larger; }
 
 .btnEnd {
   background-color: #101357;
   color: seashell;
-  height: 7em;
-  width: 15em;
-  margin: 5em 5em;
-  border-radius: 2em;
+  border-radius: 5px;
   text-align: center; }
 
 .center {
   display: flex;
-  justify-content: center;
-  margin: 60px auto; }
-
-.right {
-  display: flex;
-  justify-content: flex-end; }
+  text-align: center;
+  flex-direction: column;
+  margin: 60px 0px; }
 
 .around {
   justify-content: space-around;

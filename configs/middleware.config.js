@@ -4,6 +4,7 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const path = require('path');
+const hbs = require('hbs');
 
 module.exports = app => {
 
@@ -16,4 +17,6 @@ module.exports = app => {
     app.set('view engine', 'hbs');
     app.use(express.static(path.join(__dirname, '..', 'public')));
     app.use(favicon(path.join(__dirname, '..', 'public', 'images', 'favicon.ico')));
+    hbs.registerPartials(path.join(__dirname,'..','views','partials'))
+
 }
